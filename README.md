@@ -27,9 +27,7 @@ Create an environment and install the dependencies:
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install numpy scipy h5py numba pytest
-python -m pip install torch  # required for fitting modules and GPU workflows
-export PYTHONPATH="$PWD/src"
+python -m pip install -e ".[test]"
 ```
 
 Install the PyTorch build appropriate for your operating system and CUDA version if you plan to train on a GPU.
@@ -55,7 +53,7 @@ Times are interpreted in the `Europe/Warsaw` time zone.
 Run the test suite:
 
 ```bash
-PYTHONPATH=src pytest -q
+pytest -q
 ```
 
 Check that CUDA is visible and can allocate tensors:
